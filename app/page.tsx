@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Avatar } from "@/components/ui/avatar"
+import AuthButton from "@/components/AuthButton"
 
 export default function Component() {
   return (
@@ -13,18 +14,8 @@ export default function Component() {
           <span className="sr-only">PatientAdvocate</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4 text-[#757575]" href="#">
-            Login
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4 text-[#757575]" href="#">
-            Team
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4 text-[#757575]" href="#">
-            Testimonials
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4 text-[#757575]" href="#">
-            Contact
-          </Link>
+          <AuthButton/>
+          
         </nav>
       </header>
       <main className="flex-1">
@@ -58,7 +49,7 @@ export default function Component() {
         <h2 className="mb-12 text-2xl font-semibold text-center text-[#757575]">
               PatientAdvocate platform:
             </h2>
-          <div className="container grid gap-6 px-4 md:px-6 lg:grid-cols-2">
+          <div className="container grid gap-6 px-4 md:px-6 lg:grid-cols-3">
             <Card>
               <CardHeader>
                 <div className="flex flex-row">
