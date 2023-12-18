@@ -34,6 +34,8 @@ export default function Login({
     const origin = headers().get('origin')
     const email = formData.get('email') as string
     const password = formData.get('password') as string
+    const first_name = formData.get('first_name') as string
+    const last_name = formData.get('last_name') as string
     
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
@@ -43,6 +45,10 @@ export default function Login({
       password,
       options: {
         emailRedirectTo: `${origin}/auth/callback`,
+        data: {
+          first_name: first_name,
+          last_name: last_name,
+        }
       },
     })
 
@@ -80,6 +86,24 @@ export default function Login({
         className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
         action={signIn}
       >
+        <label className="text-md" htmlFor="first_name">
+          First name
+        </label>
+        <input
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          name="first_name"
+          placeholder="Theo"
+          required
+        />
+        <label className="text-md" htmlFor="last_name">
+          Last name
+        </label>
+        <input
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          name="last_name"
+          placeholder="Brock"
+          required
+        />
         <label className="text-md" htmlFor="email">
           Email
         </label>
@@ -99,15 +123,13 @@ export default function Login({
           placeholder="••••••••"
           required
         />
-        <button className=" border-2 border-green-700 rounded-md px-4 py-2 text-foreground mb-2">
-          Log in
-        </button>
-        <Link
-        href="/signup"
-          className="border border-foreground/20 text-center rounded-md px-4 py-2 text-foreground mb-2"
+        
+        <button
+          formAction={signUp}
+          className="border-2 border-green-700 rounded-md px-4 py-2 text-foreground mb-2"
         >
           Create Account
-        </Link>
+        </button>
         {searchParams?.message && (
           <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
             {searchParams.message}

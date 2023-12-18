@@ -32,12 +32,12 @@ export default function Component() {
 
               
               <div className="py-10">
-                <Button
-                  className="inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-[#007bff] text-white"
-                  variant="solid"
-                >
-                  Get Started
-                </Button>
+              <Link
+              href="/signup"
+                className="border-2 border-green-700 text-center rounded-md px-4 py-2 text-foreground mb-2"
+              >
+                Get Started
+              </Link>
               </div>
                 
               

@@ -1,0 +1,5 @@
+- Update sign up to include first and last name
+
+- Implement audio upload and automatic transcription. 
+- Build out dashboard with table view of audio recordings and transcriptions
+- Implement semantic search over transcriptions
