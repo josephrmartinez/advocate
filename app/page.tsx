@@ -11,15 +11,12 @@ export default function Component() {
         <section className="w-screen flex flex-col items-center py-12 md:py-24 lg:py-32 xl:py-48 bg-[#f7f7f7]">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
-              
                 <p className="mx-auto text-gray-600 font-bold text-5xl  dark:text-gray-400">
                 Record your medical appointments. 
                 </p>
                 <p className="mx-auto text-gray-600  text-3xl  dark:text-gray-400">
                 Get clarity, accountability, and better outcomes.
                 </p>
-
-              
               <div className="py-10">
               <Link
               href="/signup"
@@ -28,8 +25,6 @@ export default function Component() {
                 Get Started
               </Link>
               </div>
-                
-              
             </div>
           </div>
         </section>
@@ -41,9 +36,9 @@ export default function Component() {
             <div className="container grid gap-6 px-4 md:px-6 lg:grid-cols-3">
               <Card>
                 <CardHeader>
-                  <div className="flex flex-row">
-                    <CheckCircleIcon className="w-6 h-6 mr-4 text-[#007bff]" />
-                    <h3 className="text-xl font-medium text-[#757575]">RECORD</h3>
+                  <div className="flex flex-row items-center">
+                    <img src="/icons/record-fill-red.png" className="w-6 h-6 mr-4" />
+                    <h3 className="text-lg tracking-wide font-medium text-[#757575]">RECORD</h3>
                   </div>
                   
                 </CardHeader>
@@ -58,9 +53,9 @@ export default function Component() {
               </Card>
               <Card>
                 <CardHeader>
-                  <div className="flex flex-row">
-                    <CheckCircleIcon className="w-6 h-6 mr-4 text-[#007bff]" />
-                    <h3 className="text-xl font-medium text-[#757575]">REVIEW</h3>
+                  <div className="flex flex-row items-center">
+                  <img src="/icons/list-magnifying-glass.png" className="w-6 h-6 mr-4" />
+                    <h3 className="text-lg tracking-wide font-medium text-[#757575]">REVIEW</h3>
                   </div>
                   
                 </CardHeader>
@@ -74,9 +69,9 @@ export default function Component() {
 
               <Card>
                 <CardHeader>
-                  <div className="flex flex-row">
-                    <CheckCircleIcon className="w-6 h-6 mr-4 text-[#007bff]" />
-                    <h3 className="text-xl font-medium text-[#757575]">GET ASSISTANCE</h3>
+                  <div className="flex flex-row items-center">
+                    <img src="/icons/binoculars-duotone.png" className="w-6 h-6 mr-4" />
+                    <h3 className="text-lg tracking-wide font-medium text-[#757575]">GET ASSISTANCE</h3>
                   </div>
                   
                 </CardHeader>
