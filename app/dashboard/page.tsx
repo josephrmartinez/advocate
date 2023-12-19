@@ -1,11 +1,27 @@
+// "use client"
+
 import Link from "next/link"
 import Header from "@/components/Header"
+import React from "react"
+import { useState } from "react"
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import Transcript from '../dev/Transcript'; 
+
+
+
+
 
 export default function Component() {
+
+  // const [transcriptVisible, setTranscriptVisible] = useState(false);
+
+  // const toggleTranscript = () => {
+  //   setTranscriptVisible(!transcriptVisible);
+  // };
+
   return (
     <div className="flex flex-col items-center min-h-screen bg-[#ffffff]">
       <Header/>
@@ -39,18 +55,17 @@ export default function Component() {
                 <Badge>Oncologist</Badge>
               </div>
               <div className="flex flex-col items-center">
-                <audio className="mt-2 w-full my-4" controls src="/placeholder-audio.mp3">
+                <audio className="mt-2 w-full my-4" controls>
+                  <source src="/dev/Amols.wav" type="audio/wav" />
                   Your browser does not support the audio element.
                 </audio>
                 <Input className="pl-8 my-4 w-11/12" placeholder="Search this appointment..." type="search" />
                 <div className="w-11/12">
-                  <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4" href="#">
-                    Transcript ^
+                  <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
+                  href="#">
+                    Transcript
                   </a>
-                  <p>
-                    "Looking forward to our next appointment. We will discuss the progress of your treatment and possible
-                    adjustments."
-                  </p>
+                  <Transcript/>
                 </div>
               </div>
               
@@ -82,7 +97,14 @@ export default function Component() {
 }
 
 
-
+{/* <div className="w-11/12">
+    <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
+    href="#"
+    onClick={toggleTranscript}>
+      Transcript {transcriptVisible ? 'V' : 'A'}
+    </a>
+    {transcriptVisible && <Transcript/>}
+  </div> */}
 
 
 function BookIcon(props) {
@@ -168,3 +190,6 @@ function SearchIcon(props) {
     </svg>
   )
 }
+
+
+
