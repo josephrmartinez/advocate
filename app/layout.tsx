@@ -1,5 +1,8 @@
 import { GeistSans } from 'geist/font/sans'
 import './globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import Head from 'next/head'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -17,12 +20,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={GeistSans.className}>
-      <body className="bg-background text-foreground">
-        <main className="min-h-screen flex flex-col items-center">
-          {children}
-        </main>
-      </body>
-    </html>
+    <div className="bg-background text-foreground min-h-screen flex flex-col items-center">
+      <Head>
+        <html lang="en" className={GeistSans.className}/>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
+      <Header />
+      <main>
+      {children}
+      </main>
+      <Footer />
+    </div>
   )
 }

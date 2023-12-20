@@ -24,7 +24,6 @@ export default function Component() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-[#ffffff]">
-      <Header/>
       
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-10 w-screen">
       <div className="grid grid-cols-5 grid-rows-8 gap-4">
@@ -33,7 +32,9 @@ export default function Component() {
   <button className="text-center text-lg font-bold rounded-full px-4 py-4 mb-2 hover:bg-gray-100">
     + New appointment
   </button>
-   
+  <button className="text-center text-lg font-bold rounded-full px-4 py-4 mb-2 hover:bg-gray-100">
+    Prep for appointment
+  </button>
     
           
   </div>
@@ -52,7 +53,12 @@ export default function Component() {
             <CardContent>
               <div className="flex items-center justify-between py-6">
                 <p className="text-lg font-semibold">Dr. Smith Intake</p>
-                <Badge>Oncologist</Badge>
+                <div className="flex flex-row items-center">
+                  <div className="text-sm font-semibold tracking-wider bg-black rounded-full py-2 px-3 mx-2 text-gray-100">oncology</div>
+                  <div className="text-sm font-semibold tracking-wider bg-black rounded-full py-2 px-3 mx-2 text-gray-100">specialist</div>
+                  <div className="text-sm font-bold mx-2">+ add tag</div>
+                </div>
+                
               </div>
               <div className="flex flex-col items-center">
                 <audio className="mt-2 w-full my-4" controls>
@@ -60,12 +66,26 @@ export default function Component() {
                   Your browser does not support the audio element.
                 </audio>
                 <Input className="pl-8 my-4 w-11/12" placeholder="Search this appointment..." type="search" />
-                <div className="w-11/12">
+                <div className="w-11/12 ">
+                  <div className="flex flex-row">
                   <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
                   href="#">
                     Transcript
                   </a>
-                  <Transcript/>
+                  <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
+                  href="#">
+                    Summary
+                  </a>
+                  <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
+                  href="#">
+                    Potential issues
+                  </a>
+                  </div>
+                  
+                  <div className="h-48 overflow-y-scroll">
+                    <Transcript/>
+                  </div>
+                  
                 </div>
               </div>
               
@@ -77,21 +97,7 @@ export default function Component() {
         
       </main>
 
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-[#f7f7f7]">
-        <p className="text-xs text-gray-500">© PatientAdvocate All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4 text-[#757575]" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4 text-[#757575]" href="#">
-            Privacy
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4 text-[#757575]" href="#">
-            Contact
-          </Link>
-          
-        </nav>
-      </footer>
+      
     </div>
   )
 }
