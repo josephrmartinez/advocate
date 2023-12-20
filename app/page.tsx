@@ -1,7 +1,5 @@
 import Link from "next/link"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
 
 export default function Landing() {
   return (
@@ -14,7 +12,7 @@ export default function Landing() {
                 Record your medical appointments. 
                 </p>
                 <p className="mx-auto text-gray-600  text-3xl  dark:text-gray-400">
-                Get clarity, accountability, and better outcomes.
+                Clarity, accountability, better outcomes.
                 </p>
               <div className="py-10">
               <Link

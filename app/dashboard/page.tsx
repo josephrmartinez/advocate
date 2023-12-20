@@ -1,26 +1,19 @@
-// "use client"
-
-import Link from "next/link"
-import Header from "@/components/Header"
+'use client'
 import React from "react"
 import { useState } from "react"
-import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import Transcript from '../dev/Transcript'; 
 
 
-
-
-
 export default function Component() {
 
-  // const [transcriptVisible, setTranscriptVisible] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
 
-  // const toggleTranscript = () => {
-  //   setTranscriptVisible(!transcriptVisible);
-  // };
+  const toggleContent = () => {
+    setContentVisible(!contentVisible);
+    console.log("attempted toggle")
+  };
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-[#ffffff]">
@@ -46,50 +39,67 @@ export default function Component() {
 
   <div className="col-start-2 col-span-4 row-start-2 row-span-7">
     <Card>
-            <CardHeader className="flex flex-row items-center pb-2 space-y-0">
-              <CalendarIcon className="w-4 h-4 mr-4 text-gray-500 dark:text-gray-400" />
-              <CardTitle className="text-sm font-medium">November 14, 2023</CardTitle>
+            <CardHeader className="grid grid-cols-5 border rounded-lg items-center pb-5 mb-5 space-y-0">
+              <p className="text-lg font-semibold">Dr. Smith Intake</p>
+              
+
+            <div className="flex flex-row items-center">
+              <div className="text-sm bg-black rounded-full py-2 px-3 mx-2 text-gray-100">oncology</div>
+              <div className="text-sm bg-black rounded-full py-2 px-3 mx-2 text-gray-100">specialist</div>
+              
+            </div>
+
+              <div className="flex flex-row items-center col-start-4">
+                <CalendarIcon className="w-4 h-4 mr-4 text-gray-500 dark:text-gray-400" />
+                <div className="text-sm font-medium">November 29, 2023</div>
+              </div>
+              
+              <div 
+              className="col-start-5 text-center text-sm text-gray-600 underline underline-offset-2 hover:cursor-pointer"
+              onClick={toggleContent}>
+                expand
+              </div>
+
+
+
             </CardHeader>
+
+            {contentVisible && 
             <CardContent>
-              <div className="flex items-center justify-between py-6">
-                <p className="text-lg font-semibold">Dr. Smith Intake</p>
-                <div className="flex flex-row items-center">
-                  <div className="text-sm font-semibold tracking-wider bg-black rounded-full py-2 px-3 mx-2 text-gray-100">oncology</div>
-                  <div className="text-sm font-semibold tracking-wider bg-black rounded-full py-2 px-3 mx-2 text-gray-100">specialist</div>
-                  <div className="text-sm font-bold mx-2">+ add tag</div>
+            
+            <div className="flex flex-col items-center">
+              <audio className="mt-2 w-full my-4" controls>
+                <source src="/dev/Amols.wav" type="audio/wav" />
+                Your browser does not support the audio element.
+              </audio>
+              <Input className="pl-8 my-4 w-11/12" placeholder="Ask about this appointment..." type="search" />
+              <div className="w-11/12 ">
+                <div className="flex flex-row">
+                <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
+                href="#">
+                  Transcript
+                </a>
+                <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
+                href="#">
+                  Summary
+                </a>
+                <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
+                href="#">
+                  Resources
+                </a>
+                </div>
+                
+                <div className="h-48 overflow-y-scroll border border-gray-100 rounded-lg">
+                  <Transcript/>
                 </div>
                 
               </div>
-              <div className="flex flex-col items-center">
-                <audio className="mt-2 w-full my-4" controls>
-                  <source src="/dev/Amols.wav" type="audio/wav" />
-                  Your browser does not support the audio element.
-                </audio>
-                <Input className="pl-8 my-4 w-11/12" placeholder="Search this appointment..." type="search" />
-                <div className="w-11/12 ">
-                  <div className="flex flex-row">
-                  <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
-                  href="#">
-                    Transcript
-                  </a>
-                  <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
-                  href="#">
-                    Summary
-                  </a>
-                  <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
-                  href="#">
-                    Potential issues
-                  </a>
-                  </div>
-                  
-                  <div className="h-48 overflow-y-scroll">
-                    <Transcript/>
-                  </div>
-                  
-                </div>
-              </div>
-              
-            </CardContent>
+            </div>
+            
+          </CardContent>
+            
+            }
+            
     </Card>
   </div>
 </div>
@@ -103,34 +113,7 @@ export default function Component() {
 }
 
 
-{/* <div className="w-11/12">
-    <a className="text-lg font-semibold text-gray-700 mt-2 underline underline-offset-4"
-    href="#"
-    onClick={toggleTranscript}>
-      Transcript {transcriptVisible ? 'V' : 'A'}
-    </a>
-    {transcriptVisible && <Transcript/>}
-  </div> */}
 
-
-function BookIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-    </svg>
-  )
-}
 
 
 function CalendarIcon(props) {
@@ -151,48 +134,6 @@ function CalendarIcon(props) {
       <line x1="16" x2="16" y1="2" y2="6" />
       <line x1="8" x2="8" y1="2" y2="6" />
       <line x1="3" x2="21" y1="10" y2="10" />
-    </svg>
-  )
-}
-
-
-function PlusIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14" />
-      <path d="M12 5v14" />
-    </svg>
-  )
-}
-
-
-function SearchIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
     </svg>
   )
 }

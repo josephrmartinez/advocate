@@ -22,19 +22,23 @@ export default async function AuthButton() {
   }
 
   return user ? (
-    <div className="flex items-center gap-4">
+    <div className="flex flex-row items-center gap-4">
       {metadata && `Hello, ${metadata.first_name}!`}
       <Link
       href="/dashboard"
-      className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+      className="py-2 px-3 flex rounded-lg no-underline bg-btn-background hover:bg-btn-background-hover"
     >
       dashboard
     </Link>
-      <form action={signOut}>
-        <button className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover">
-          log out
-        </button>
-      </form>
+      
+    <form action={signOut} style={{ margin: 0, padding: 0, border: 'none' }}>
+      <button
+      className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover">
+        log out
+      </button>
+    </form>
+    
+      
     </div>
   ) : (
     <Link
