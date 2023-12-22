@@ -2,11 +2,17 @@ import React from "react"
 import { useState, useEffect } from "react"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
+import transcriptContent from './dev/transcriptContent'
+import summaryContent from './dev/summaryContent'
+import feedbackContent from './dev/feedbackContent'
 
-export default function AppointmentCard({ transcript }){
+
+export default function AppointmentCard({ appointmentData }){
 
 const [contentVisible, setContentVisible] = useState(false);
 const [activeTab, setActiveTab] = useState('transcript');
+
+
 
 
 const toggleContent = () => {
@@ -22,22 +28,25 @@ const ContentRenderer = ({ content }) => {
     return <>{content}</>;
   };
 
-
 return (
 <Card>
-        <CardHeader className="grid grid-cols-5 border border-gray-100 rounded-lg items-center pb-5 space-y-0">
-        <p className="text-lg font-semibold">Dr. Smith Intake</p>
-        
-
+    <CardHeader className="grid grid-cols-5 border border-gray-100 rounded-lg items-center pb-5 space-y-0">
+        <p className="text-lg font-semibold">{appointmentData.title}</p>
+        <p className="text-sm font-medium">{appointmentData.clinic}</p>
         <div className="flex flex-row items-center">
-        <div className="text-sm bg-black rounded-full py-2 px-3 mx-2 text-gray-100">fertility</div>
-        <div className="text-sm bg-black rounded-full py-2 px-3 mx-2 text-gray-100">specialist</div>
-        
+            {appointmentData.tags.map((tag, index) => (
+                <div
+                    key={index} 
+                    className="text-sm bg-black rounded-full py-2 px-3 mx-2 text-gray-100"
+                >
+                    {tag}
+                </div>
+            ))}
         </div>
 
         <div className="flex flex-row items-center col-start-4">
             <CalendarIcon className="w-4 h-4 mr-3 text-gray-500 dark:text-gray-400" />
-            <div className="text-sm font-medium">November 29, 2023</div>
+            <div className="text-sm font-medium">{appointmentData.date}</div>
         </div>
         
         <div 
@@ -55,7 +64,7 @@ return (
         
         <div className="flex flex-col items-center mt-5">
         <audio className="w-full my-4" controls>
-            <source src="/dev/Amols.wav" type="audio/wav" />
+            <source src={appointmentData.audio} type="audio/wav" />
             Your browser does not support the audio element.
         </audio>
         <Input className="pl-6 my-4 w-11/12" placeholder="Ask about this appointment..." type="search" />
@@ -65,16 +74,17 @@ return (
             
             <button className={`text-lg font-semibold text-gray-500 mt-2 ${activeTab === 'transcript' && 'text-gray-700 underline underline-offset-4'}`}
                 onClick={() => handleTabClick('transcript')}>Transcript</button>
-                <button className={`text-lg font-semibold text-gray-500 mt-2 ${activeTab === 'summary' && 'text-gray-700 underline underline-offset-4'}`}
+            <button className={`text-lg font-semibold text-gray-500 mt-2 ${activeTab === 'summary' && 'text-gray-700 underline underline-offset-4'}`}
                 onClick={() => handleTabClick('summary')}>Summary</button>
-            <button className={`text-lg font-semibold text-gray-500 mt-2 ${activeTab === 'resources' && 'text-gray-700 underline underline-offset-4'}`}
-                onClick={() => handleTabClick('resources')}>Interpretation</button>
+            <button className={`text-lg font-semibold text-gray-500 mt-2 ${activeTab === 'feedback' && 'text-gray-700 underline underline-offset-4'}`}
+                onClick={() => handleTabClick('feedback')}>Feedback</button>
+            
             </div>
 
             <div className="h-48 overflow-y-scroll border p-2 border-gray-100 rounded-lg">
-            {activeTab === 'summary' && <SummaryContent />}
             {activeTab === 'transcript' && <ContentRenderer content={transcriptContent}/>}
-            {activeTab === 'resources' && <ResourcesContent />}
+            {activeTab === 'summary' && <ContentRenderer content={summaryContent}/>}
+            {activeTab === 'feedback' && <ContentRenderer content={feedbackContent}/>}
             </div>
         </div>
         
