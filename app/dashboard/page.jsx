@@ -8,7 +8,7 @@ export default function Dashboard() {
 
   const appointmentData = {
     title: "New Patient Intake",
-    clinic: "New Direction Fertility Center",
+    clinic: "Nova Fertility Center",
     tags: ["fertility", "specialist"],
     date: "November 29, 2023",
     audio: "/dev/Amols.wav"
@@ -16,7 +16,7 @@ export default function Dashboard() {
 
 const secondAppt = {
   title: "Review blood work",
-  clinic: "Naturopathic Clinic",
+  clinic: "RDM Naturopathic Clinic",
   tags: ["blood work"],
   date: "November 19, 2023",
   audio: "/dev/Amols.wav"
@@ -24,11 +24,37 @@ const secondAppt = {
 
 const thirdAppt = {
   title: "Consultation",
+  clinic: "RDM Naturopathic Clinic",
+  tags: ["cholesterol"],
+  date: "December 21, 2023",
+  audio: "/dev/Amols.wav"
+}
+
+
+const fourthAppt = {
+  title: "Consultation",
+  clinic: "Minute Clinic",
+  tags: ["rib pain", "urgent"],
+  date: "December 21, 2023",
+  audio: "/dev/Amols.wav"
+}
+
+const fifthAppt = {
+  title: "Consultation",
   clinic: "Naturopathic Clinic",
   tags: ["cholesterol"],
   date: "December 21, 2023",
   audio: "/dev/Amols.wav"
 }
+
+const sixthAppt = {
+  title: "Consultation",
+  clinic: "Naturopathic Clinic",
+  tags: ["cholesterol"],
+  date: "December 21, 2023",
+  audio: "/dev/Amols.wav"
+}
+
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-[#ffffff]">
@@ -51,6 +77,8 @@ const thirdAppt = {
             <AppointmentCard appointmentData={thirdAppt}/>
             <AppointmentCard appointmentData={appointmentData}/>
             <AppointmentCard appointmentData={secondAppt}/>
+            <AppointmentCard appointmentData={fourthAppt}/>
+            <AppointmentCard appointmentData={fifthAppt}/>
             
           </div>
 
