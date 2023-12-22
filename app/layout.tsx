@@ -1,5 +1,6 @@
 import { GeistSans } from 'geist/font/sans'
 import './globals.css'
+import Header from '@/components/Header'
 
 
 const defaultUrl = process.env.VERCEL_URL
@@ -19,7 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.className} antialiased`}>{children}</body>
+      <body className={`${GeistSans.className} antialiased`}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }

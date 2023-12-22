@@ -37,7 +37,7 @@ return (
             {appointmentData.tags.map((tag, index) => (
                 <div
                     key={index} 
-                    className="text-sm bg-black rounded-full py-2 px-3 mx-2 text-gray-100"
+                    className="text-sm font-medium bg-black rounded-full py-2 px-3 mx-2 text-gray-100"
                 >
                     {tag}
                 </div>

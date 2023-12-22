@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 import AppointmentCard from "@/components/AppointmentCard"
 
 
-export default function Component() {
+export default function Dashboard() {
 
   const appointmentData = {
     title: "New Patient Intake",
@@ -46,7 +46,7 @@ const thirdAppt = {
             <Input className="pl-8 my-4 h-16 w-full" placeholder="Search all appointments..." type="search" />
           </div>
 
-          <div className="col-start-2 col-span-4 row-start-2 row-span-7 h-[36rem] overflow-y-scroll">
+          <div className="col-start-2 col-span-4 row-start-2 row-span-7 h-[36rem] pr-4 overflow-y-scroll">
             
             <AppointmentCard appointmentData={thirdAppt}/>
             <AppointmentCard appointmentData={appointmentData}/>
