@@ -1,6 +1,7 @@
 import { GeistSans } from 'geist/font/sans'
 import './globals.css'
 import Header from '@/components/Header'
+import Head from 'next/head'
 
 
 const defaultUrl = process.env.VERCEL_URL
@@ -9,7 +10,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: 'PatientAdvocate',
+  title: 'advocate.ai',
   description: 'Start recording your medical appointments.',
 }
 
@@ -19,11 +20,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <>
+    
     <html lang="en">
+      <Head>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <body className={`${GeistSans.className} antialiased pt-16`}>
         <Header />
         {children}
       </body>
     </html>
+    </>
   )
 }
