@@ -1,4 +1,4 @@
-import RootLayout from './layout'
+import RootLayout from '../layout'
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {

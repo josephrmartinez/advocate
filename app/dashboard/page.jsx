@@ -1,6 +1,5 @@
 'use client'
 import React from "react"
-import { Input } from "@/components/ui/input"
 import Link from "next/link"
 
 import AllAppointments from "@/components/AllAppointments";
@@ -49,11 +48,9 @@ export default function Dashboard() {
               Record appointment
             </div>
           </div>
-          <div className="col-start-2 col-span-4 row-span-1">
-            <Input className="pl-8 mb-4 h-16 w-full" placeholder="Search all appointments..." type="search" />
-          </div>
+          
 
-          <div className="col-start-2 col-span-4 row-start-2 row-span-7 h-[36rem] pr-4 overflow-y-scroll">
+          <div className="col-start-2 col-span-4 row-start-1 row-span-7">
             {renderSelectedComponent()}
           </div>
 

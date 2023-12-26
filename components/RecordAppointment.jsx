@@ -44,9 +44,9 @@ export default function RecordAppointment() {
     return (
       <div className="flex flex-col items-center">
         <form className="flex flex-col items-center" onSubmit={handleSubmit}>
-          <div>upload recording</div>
-          <input type="file" name="file"></input>
-          <button type="submit">Upload and transcribe</button>
+          <div className="text-3xl mb-8">upload recording</div>
+          <input type="file" name="file" className="my-6"></input>
+          <button type="submit" className="border rounded-full px-2 py-1">Upload and transcribe</button>
         </form>
 
       {error && <div>{error}</div>}

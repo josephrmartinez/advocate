@@ -1,4 +1,5 @@
 import AppointmentCard from "@/components/AppointmentCard"
+import { Input } from "@/components/ui/input"
 
 
 
@@ -48,12 +49,18 @@ const fifthAppt = {
 
 
 
-    return <>
-    <AppointmentCard appointmentData={thirdAppt}/>
-    <AppointmentCard appointmentData={appointmentData}/>
-    <AppointmentCard appointmentData={secondAppt}/>
-    <AppointmentCard appointmentData={fourthAppt}/>
-    <AppointmentCard appointmentData={fifthAppt}/>
-    </>;
+    return <div className="grid grid-cols-4">
+    <div className="col-span-4 row-span-1 ">
+      <Input className="pl-8 mb-4 h-16 w-full" placeholder="Search all appointments..." type="search" />
+    </div>
+    <div className="col-span-4 row-start-2 h-[36rem] pr-4 overflow-y-scroll">
+      <AppointmentCard appointmentData={thirdAppt}/>
+      <AppointmentCard appointmentData={appointmentData}/>
+      <AppointmentCard appointmentData={secondAppt}/>
+      <AppointmentCard appointmentData={fourthAppt}/>
+      <AppointmentCard appointmentData={fifthAppt}/>
+    </div>
+    
+    </div>;
   };
 
