@@ -1,3 +1,8 @@
-- Implement audio upload and automatic transcription. 
-- Build out dashboard with table view of audio recordings and transcriptions
-- Implement semantic search over transcriptions
+- Implement audio upload and transcription API call
+- Implement server function to generate and save transcriptions
+- Implement server function to generate summary and feedback and save to DB
+
+- Build out dashboard to load users audio recordings and transcriptions
+
+- Implement semantic search over transcriptions (RAG over transcriptions)
+- Implement appointment prep chat agent (Appt prep agent + RAG over transcriptions)
