@@ -1,12 +1,13 @@
 'use client'
 
 import { useState } from 'react';
-import uploadFile from '@/utils/supabase/uploadFile';
+import { uploadFile } from '@/utils/supabase/uploadFile';
 
 
 const UploadAppointment = () => {
   const [file, setFile] = useState(null);
 
+  
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
