@@ -6,6 +6,7 @@ import AllAppointments from "@/components/AllAppointments";
 import InviteCaregiver from "@/components/InviteCaregiver";
 import PrepareForAppointment from "@/components/PrepareForAppointment";
 import RecordAppointment from "@/components/RecordAppointment";
+import UploadAppointment from "@/components/UploadAppointment";
 import Settings from "@/components/Settings";
 import { useState } from "react"
 
@@ -23,6 +24,8 @@ export default function Dashboard() {
         return <PrepareForAppointment />;
       case "record-appointment":
         return <RecordAppointment />;
+      case "upload-appointment":
+        return <UploadAppointment />;
       case "settings":
         return <Settings />;
       default:
@@ -42,10 +45,10 @@ export default function Dashboard() {
               View all appointments
             </div>
             <div
-              onClick={() => setSelectedSection("record-appointment")}
+              onClick={() => setSelectedSection("upload-appointment")}
               className="text-left text-md font-semibold border-b border-gray-100 text-gray-700 px-4 py-4 w-full"
             >
-              Record appointment
+              Upload appointment
             </div>
           </div>
           
